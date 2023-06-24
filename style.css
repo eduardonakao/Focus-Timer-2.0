@@ -1,5 +1,98 @@
+:root {
+    --primary-color: #323238;
+    --light-sound-color: #E1E1E6;
+    --dark-sound-color: #02799D;
+    --bg-light-color: #E5E5E5;
+    --bg-dark-color: #000000;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-light-color);
+    display: grid;
+    min-height: 100vh;
+}
+
+main {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    width: 82.1rem;
+    height: 33.6rem;
+}
+
+.timer {
+    display: block;
+}
+
+.time {
+    font-size: 12.61rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.sounds ul li button {
+    width: 13.8rem;
+    height: 15.2rem;
+    border-radius: 2.4rem;
+    background-color: var(--light-sound-color);
+}
+
+.sounds ul li button.dark {
+    background-color: var(--dark-sound-color);
+}
+
+.sounds ul li button svg path {
+    fill: var(--primary-color);
+}
+
+.sounds ul li button.white svg path {
+    fill: white;
+}
+
+.sounds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30.8rem;
+    height: 33.6rem;
+}
+
+.sounds ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+    
+}
+
+.florest {
+    margin: 0 3.2rem 3.2rem 0;
+}
+
+.rain {
+ margin-bottom: 3.2rem;   
 }
