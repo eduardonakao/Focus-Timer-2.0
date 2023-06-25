@@ -36,6 +36,7 @@ main {
 }
 
 .time {
+    display: flex;
     font-size: 12.61rem;
 }
 
