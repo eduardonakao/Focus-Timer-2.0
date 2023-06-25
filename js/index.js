@@ -1,3 +1,8 @@
+const florestSound = new Audio ('./sounds/Floresta.wav')
+const rainSound = new Audio ('./sounds/Chuva.wav')
+const coffeeSound = new Audio ('./sounds/Cafeteria.wav')
+const fireplaceSound =new Audio ('./sounds/Lareira.wav')
+
 const play = document.querySelector('.play')
 const pause = document.querySelector('.pause')
 const plus = document.querySelector('.plus')
@@ -6,6 +11,7 @@ const florest = document.querySelector('.florest')
 const coffee = document.querySelector('.coffee')
 const rain = document.querySelector('.rain')
 const fireplace = document.querySelector('.fireplace')
+
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
@@ -16,6 +22,18 @@ let timerTimeout
 function hold() {
     clearTimeout(timerTimeout)
     play.addEventListener('click', countDown)
+}
+
+function minusButton() {
+
+    if(minutes < 5 && minutes > 0) {
+        minutes -= 1
+    } else if( minutes <= 0) {
+        return
+    } else {
+        minutes -= 5
+    }
+
 }
 
 function countDown() {
@@ -44,8 +62,20 @@ function countDown() {
     
 }
 
+
+
 play.addEventListener('click', countDown)
 pause.addEventListener('click', hold)
+
+plus.addEventListener('click', () => {
+    minutes += 5
+    minutesDisplay.innerText = String(minutes).padStart(2, '0')
+})
+
+minus.addEventListener('click', () => {
+    minusButton()
+    minutesDisplay.innerText = String(minutes).padStart(2, '0')
+})
 
 coffee.addEventListener('click', () => {
     coffee.classList.toggle('dark')
@@ -56,6 +86,11 @@ coffee.addEventListener('click', () => {
     florest.classList.remove('white')
     rain.classList.remove('dark')
     rain.classList.remove('white')
+    coffeeSound.loop = true
+    florestSound.pause()
+    rainSound.pause()
+    fireplaceSound.pause()
+    coffeeSound.paused ? coffeeSound.play() : coffeeSound.pause()
 })
 
 
@@ -68,6 +103,11 @@ rain.addEventListener('click', () => {
     florest.classList.remove('white')
     coffee.classList.remove('dark')
     coffee.classList.remove('white')
+    rainSound.loop = true
+    coffeeSound.pause()
+    florestSound.pause()
+    fireplaceSound.pause()
+    rainSound.paused ? rainSound.play() : rainSound.pause()
 })
 
 fireplace.addEventListener('click', () => {
@@ -79,6 +119,11 @@ fireplace.addEventListener('click', () => {
     florest.classList.remove('white')
     rain.classList.remove('dark')
     rain.classList.remove('white')
+    fireplaceSound.loop = true
+    coffeeSound.pause()
+    florestSound.pause()
+    rainSound.pause()
+    fireplaceSound.paused ? fireplaceSound.play() : fireplaceSound.pause()
 })
 
 florest.addEventListener('click', () => {
@@ -90,26 +135,9 @@ florest.addEventListener('click', () => {
     coffee.classList.remove('white')
     rain.classList.remove('dark')
     rain.classList.remove('white')
+    florestSound.loop = true
+    coffeeSound.pause()
+    rainSound.pause()
+    fireplaceSound.pause()
+    florestSound.paused ? florestSound.play() : florestSound.pause()
 })
-
-plus.addEventListener('click', () => {
-    minutes += 5
-    minutesDisplay.innerText = String(minutes).padStart(2, '0')
-})
-
-minus.addEventListener('click', () => {
-    minusButton()
-    minutesDisplay.innerText = String(minutes).padStart(2, '0')
-})
-
-function minusButton() {
-
-    if(minutes < 5 && minutes > 0) {
-        minutes -= 1
-    } else if( minutes <= 0) {
-        return
-    } else {
-        minutes -= 5
-    }
-
-}
