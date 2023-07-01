@@ -1,12 +1,15 @@
 :root {
     --primary-color: #323238;
     --light-sound-color: #E1E1E6;
-    --dark-sound-color: #02799D;
+    --blue-sound-color: #02799D;
+    --dark-sound-color: #29292E;
+    --darkBlue-sound-color: #0A3442;
     --bg-light-color: #E5E5E5;
     --bg-dark-color: #000000;
+    --timer-light-color: #fff;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,18 +24,35 @@ body {
 }
 
 main {
-    color: var(--primary-color);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    align-self: center;
     justify-self: center;
     width: 82.1rem;
     height: 33.6rem;
+    margin-bottom: 7rem;
+}
+
+.bgDark {
+    background-color: var(--bg-dark-color)
+}
+
+
+.light-dark-mode {
+    display: flex;
+    justify-self: flex-end;
+    margin-right: 6rem;
+    margin-top: 6rem;
+    width: 44px;
+    height: 44px;
+}
+
+.hide {
+    display: none;
 }
 
 .timer {
     display: block;
+    align-self: center;
 }
 
 .time {
@@ -40,9 +60,12 @@ main {
     font-size: 12.61rem;
 }
 
+.lightColor {
+    color: var(--timer-light-color);
+}
+
 .buttons {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
@@ -59,8 +82,16 @@ button {
     background-color: var(--light-sound-color);
 }
 
+.sounds ul li button.blue {
+    background-color: var(--blue-sound-color);
+}
+
 .sounds ul li button.dark {
     background-color: var(--dark-sound-color);
+}
+
+.sounds ul li button.darkBlue {
+    background-color: var(--darkBlue-sound-color);
 }
 
 .sounds ul li button svg path {
@@ -73,21 +104,16 @@ button {
 
 .sounds {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 30.8rem;
     height: 33.6rem;
 }
 
 .sounds ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 li {
-    list-style: none;
-    
+    list-style: none; 
 }
 
 .florest {
@@ -95,5 +121,5 @@ li {
 }
 
 .rain {
- margin-bottom: 3.2rem;   
+    margin-bottom: 3.2rem;   
 }

@@ -11,6 +11,10 @@ const florest = document.querySelector('.florest')
 const coffee = document.querySelector('.coffee')
 const rain = document.querySelector('.rain')
 const fireplace = document.querySelector('.fireplace')
+const lightMode = document.querySelector('.lightMode')
+const darkMode = document.querySelector('.darkMode')
+const body = document.querySelector('body')
+const time = document.querySelector('.time')
 
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
@@ -77,15 +81,120 @@ minus.addEventListener('click', () => {
     minutesDisplay.innerText = String(minutes).padStart(2, '0')
 })
 
+lightMode.addEventListener('click', () => {
+    lightMode.classList.toggle('hide')
+    darkMode.classList.toggle('hide')
+    body.classList.toggle('bgDark')
+    time.classList.toggle('lightColor')
+
+    if(coffee.classList.contains('blue')) {
+        coffee.classList.add('darkBlue')
+        coffee.classList.remove('blue')
+
+    }
+
+    if(!coffee.classList.contains('white')) {
+        coffee.classList.add('white')
+        coffee.classList.add('dark')
+    }
+
+    if(rain.classList.contains('blue')) {
+        rain.classList.add('darkBlue')
+        rain.classList.remove('blue')
+
+    }
+
+    if(!rain.classList.contains('white')) {
+        rain.classList.add('white')
+        rain.classList.add('dark')
+    }
+
+    if(fireplace.classList.contains('blue')) {
+        fireplace.classList.add('darkBlue')
+        fireplace.classList.remove('blue')
+
+    }
+
+    if(!fireplace.classList.contains('white')) {
+        fireplace.classList.add('white')
+        fireplace.classList.add('dark')
+    }
+
+    if(florest.classList.contains('blue')) {
+        florest.classList.add('darkBlue')
+        florest.classList.remove('blue')
+
+    }
+
+    if(!florest.classList.contains('white')) {
+        florest.classList.add('white')
+        florest.classList.add('dark')
+    }
+
+})
+
+darkMode.addEventListener('click', () => {
+    lightMode.classList.toggle('hide')
+    darkMode.classList.toggle('hide')
+    body.classList.toggle('bgDark')
+
+    time.classList.toggle('lightColor')
+
+    if (coffee.classList.contains('darkBlue')) {
+        coffee.classList.remove('darkBlue')
+        coffee.classList.add('blue')
+    } else {
+        coffee.classList.toggle('white')
+        coffee.classList.toggle('dark')
+    }
+
+    if (rain.classList.contains('darkBlue')) {
+        rain.classList.remove('darkBlue')
+        rain.classList.add('blue')
+    } else {
+        rain.classList.toggle('white')
+        rain.classList.toggle('dark')
+    }
+
+    if (fireplace.classList.contains('darkBlue')) {
+        fireplace.classList.remove('darkBlue')
+        fireplace.classList.add('blue')
+    } else {
+        fireplace.classList.toggle('white')
+        fireplace.classList.toggle('dark')
+    }
+
+    if (florest.classList.contains('darkBlue')) {
+        florest.classList.remove('darkBlue')
+        florest.classList.add('blue')
+    } else {
+        florest.classList.toggle('white')
+        florest.classList.toggle('dark')
+    }
+})
+
 coffee.addEventListener('click', () => {
-    coffee.classList.toggle('dark')
+
+    if(!lightMode.classList.contains('hide')) {
+    coffee.classList.toggle('blue')
     coffee.classList.toggle('white')
-    fireplace.classList.remove('dark')
+    fireplace.classList.remove('blue')
     fireplace.classList.remove('white')
-    florest.classList.remove('dark')
+    florest.classList.remove('blue')
     florest.classList.remove('white')
-    rain.classList.remove('dark')
+    rain.classList.remove('blue')
     rain.classList.remove('white')
+        } else {
+            coffee.classList.toggle('darkBlue')
+            coffee.classList.toggle('dark')
+            florest.classList.remove('darkBlue')
+            florest.classList.add('dark')
+            rain.classList.remove('darkBlue')
+            rain.classList.add('dark')
+            fireplace.classList.remove('darkBlue')
+            fireplace.classList.add('dark')
+        }
+
     coffeeSound.loop = true
     florestSound.pause()
     rainSound.pause()
@@ -95,14 +204,26 @@ coffee.addEventListener('click', () => {
 
 
 rain.addEventListener('click', () => {
-    rain.classList.toggle('dark')
-    rain.classList.toggle('white')
-    fireplace.classList.remove('dark')
-    fireplace.classList.remove('white')
-    florest.classList.remove('dark')
-    florest.classList.remove('white')
-    coffee.classList.remove('dark')
-    coffee.classList.remove('white')
+    if(!lightMode.classList.contains('hide')) {
+        rain.classList.toggle('blue')
+        rain.classList.toggle('white')
+        fireplace.classList.remove('blue')
+        fireplace.classList.remove('white')
+        florest.classList.remove('blue')
+        florest.classList.remove('white')
+        coffee.classList.remove('blue')
+        coffee.classList.remove('white')
+            } else {
+                rain.classList.toggle('darkBlue')
+                rain.classList.toggle('dark')
+                florest.classList.remove('darkBlue')
+                florest.classList.add('dark')
+                coffee.classList.remove('darkBlue')
+                coffee.classList.add('dark')
+                fireplace.classList.remove('darkBlue')
+                fireplace.classList.add('dark')
+            }
+
     rainSound.loop = true
     coffeeSound.pause()
     florestSound.pause()
@@ -111,14 +232,27 @@ rain.addEventListener('click', () => {
 })
 
 fireplace.addEventListener('click', () => {
-    fireplace.classList.toggle('dark')
-    fireplace.classList.toggle('white')
-    coffee.classList.remove('dark')
-    coffee.classList.remove('white')
-    florest.classList.remove('dark')
-    florest.classList.remove('white')
-    rain.classList.remove('dark')
-    rain.classList.remove('white')
+    if(!lightMode.classList.contains('hide')) {
+        fireplace.classList.toggle('blue')
+        fireplace.classList.toggle('white')
+        coffee.classList.remove('blue')
+        coffee.classList.remove('white')
+        florest.classList.remove('blue')
+        florest.classList.remove('white')
+        rain.classList.remove('blue')
+        rain.classList.remove('white')
+            } else {
+                fireplace.classList.toggle('darkBlue')
+                fireplace.classList.toggle('dark')
+                florest.classList.remove('darkBlue')
+                florest.classList.add('dark')
+                rain.classList.remove('darkBlue')
+                rain.classList.add('dark')
+                coffee.classList.remove('darkBlue')
+                coffee.classList.add('dark')
+            }
+
+
     fireplaceSound.loop = true
     coffeeSound.pause()
     florestSound.pause()
@@ -127,14 +261,27 @@ fireplace.addEventListener('click', () => {
 })
 
 florest.addEventListener('click', () => {
-    florest.classList.toggle('dark')
-    florest.classList.toggle('white')
-    fireplace.classList.remove('dark')
-    fireplace.classList.remove('white')
-    coffee.classList.remove('dark')
-    coffee.classList.remove('white')
-    rain.classList.remove('dark')
-    rain.classList.remove('white')
+    if(!lightMode.classList.contains('hide')) {
+        florest.classList.toggle('blue')
+        florest.classList.toggle('white')
+        fireplace.classList.remove('blue')
+        fireplace.classList.remove('white')
+        coffee.classList.remove('blue')
+        coffee.classList.remove('white')
+        rain.classList.remove('blue')
+        rain.classList.remove('white')
+            } else {
+                florest.classList.toggle('darkBlue')
+                florest.classList.toggle('dark')
+                coffee.classList.remove('darkBlue')
+                coffee.classList.add('dark')
+                rain.classList.remove('darkBlue')
+                rain.classList.add('dark')
+                fireplace.classList.remove('darkBlue')
+                fireplace.classList.add('dark')
+            }
+
+
     florestSound.loop = true
     coffeeSound.pause()
     rainSound.pause()
